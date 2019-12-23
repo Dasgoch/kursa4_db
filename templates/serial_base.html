@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+
+{% block content_title %}
+
+
+    <div title=""  style="left: 21px; position: absolute; top: 20px; width: 328px; height: 221px;">
+        <div style="width: 330px; height: 221px;">
+            <div data-has-bg-scroll-effect="" data-is-svg="false" style="width: 330px; height: 221px;">
+                {% block serial_main_img %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <div style="left: 430px; width: 433px; position: absolute; top: 23px;">
+        <h2 style="font-size:36px;">
+            {% block serial_title %}
+            {% endblock %}
+        </h2>
+    </div>
+
+    <div data-packed="true" class="txtNew" id="comp-k35ze3vy" style="left: 430px; width: 310px; position: absolute; top: 85px;">
+    <h5 class="font_5" style="font-size:20px;">
+        <p>Жанр:&nbsp;{% block serial_genre %}{% endblock %}
+        </p>
+    </h5>
+    </div>
+
+    <div data-packed="true" class="txtNew" id="comp-k35ze3vy" style="left: 430px; width: 310px; position: absolute; top: 110px;">
+    <h5 class="font_5" style="font-size:20px;">
+        <p>Режиссер:&nbsp;{% block serial_prod %}{% endblock %}</p>
+    </h5>
+    </div>
+
+    <div data-packed="true" class="txtNew" id="comp-k35ze3vy" style="left: 430px; width: 310px; position: absolute; top: 135px;">
+    <h5 class="font_5" style="font-size:20px;">
+        <p>Сценарист:&nbsp;{% block serial_scrwr %}{% endblock %}</p>
+    </h5>
+    </div>
+
+    <div data-packed="true" class="txtNew" id="comp-k35ze3vy" style="left: 430px; width: 310px; position: absolute; top: 160px;">
+    <h5 class="font_5" style="font-size:20px;">
+        <p>Год:&nbsp;{% block serial_year %}{% endblock %}</p>
+    </h5>
+    </div>
+
+    <div data-packed="true" class="txtNew" id="comp-k35ze3vy" style="left: 430px; width: 310px; position: absolute; top: 185px;">
+    <h5 class="font_5" style="font-size:20px;">
+        <p>Страна:&nbsp;{% block serial_country %}{% endblock %}</p>
+    </h5>
+    </div>
+
+    <div data-packed="true" class="txtNew" id="comp-k35ze3vy" style="left: 430px; width: 310px; position: absolute; top: 210px;">
+    <h5 class="font_5" style="font-size:20px;">
+        <p>Сезонов:&nbsp;{% block serial_seasons %}{% endblock %}</p>
+    </h5>
+    </div>
+
+    <div data-packed="true" class="txtNew" id="comp-k35ze3vy" style="left: 430px; width: 310px; position: absolute; top: 235px;">
+    <h5 class="font_5" style="font-size:20px;">
+        <p>В главных ролях:&nbsp;<a>{% block serial_actors %}{% endblock %}</a></p>
+    </h5>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <div title="" style="left: 430px; position: absolute; top: 262px; width: 151px; height: 101px;">
+        <div class="" style="width: 151px; height: 101px;">
+            {% block serial_dop_img1 %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div title="" style="left: 600px; position: absolute; top: 262px; width: 151px; height: 101px;">
+        <div class="" style="width: 151px; height: 101px;">
+            {% block serial_dop_img2 %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div title="" style="left: 770px; position: absolute; top: 262px; width: 151px; height: 101px;">
+        <div class="" style="width: 151px; height: 101px;">
+            {% block serial_dop_img3 %}
+            {% endblock %}
+        </div>
+    </div>
+
+
+    <div class="rate-star" style="left: 21px; width: 75px; position: absolute; top: 252px; height: 64px;">
+        <img src="https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png" width="80" height="80">
+    </div>
+
+    <div class="txtNew" style="left: 108px; width: 258px; position: absolute; pointer-events: none; top: 252px;">
+        <h2 class="font_5" style="font-size:23px;">
+            <p>Rating:&nbsp;</p>
+        </h2>
+    </div>
+
+    <div class="txtNew" style="left: 108px; width: 258px; position: absolute; pointer-events: none; top: 280px;">
+        <h2 class="font_5" style="font-size:36px;">
+            <p>{% block serial_rating %}{% endblock %}</p>
+        </h2>
+    </div>
+
+    <div style="left: 21px; position: absolute; top: 335px; height: 40px; width: 200px;">
+        <a href="#" class="btn btn-lg btn-secondary">Оценить</a>
+    </div>
+
+    <div class="serial-info" style="left: 21px; position: absolute; top: 390px; height: 80px; width: 550px;">
+        <h2 style="font-size:18px;">
+            Сюжет:
+        </h2>
+        <p>
+            {% block serial_plot %}
+            {% endblock %}
+        </p>
+    </div>
+
+
+{% endblock %}

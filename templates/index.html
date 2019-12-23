@@ -1,0 +1,39 @@
+<head>
+<title>Главная |Flask app</title>
+</head>
+
+{% extends 'base.html' %}
+
+{% block content_title %}
+<br>
+{% endblock %}
+
+
+{% block content %}
+
+{% for serial in serials %}
+    <!---->
+<div class="jumbotron"style="width: 400px; height: auto;">
+
+    <a  href="{{ url_for('serial_detail', serial=serial.href) }}" title="{{ serial[2] }}" > <!--rel="noopener" target="_blank" для перехода в новую вкладку-->
+        <img src="{{ serial.main_img }}" width="200" height="250" > <!--ссылка НА картинку-->
+    </a>
+
+    <h2 class="entry-title" style="color: black">
+        <a href="{{ url_for('serial_detail', serial=serial.href) }}" >
+            {{ serial.name }}
+        </a> <!--ссылка на надписи--->
+        <!--<a> href= {'{ url_for('posts.post_detail', slug = post.slug) }}</a>-->
+
+    </h2>
+
+    <h6>Жанр:&nbsp;{{ serial.genre_name }}</h6>
+    <h6>Год:&nbsp;{{ serial.year }}</h6>
+    <h6>Сезонов:&nbsp;{{ serial.season}}</h6>
+    <h5>Рейтинг:&nbsp;{{ serial.rate }}</h5> <!--rating-->
+
+
+</div>
+{% endfor %}
+
+{% endblock %}

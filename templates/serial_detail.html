@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% for serial in serials %}
+	<title>{{ serial.name }} |Flask app</title>
+    {% endfor %}
+</head>
+
+{% extends 'base.html' %}
+
+<body>
+{% block serial_content %}
+<!--------------------------------------------------------------------------------------------------------------------->
+	<!-- Header section start -->
+	<header class="header-section">
+	</header>
+	<!-- Header section end -->
+
+	<!-- Hero section start -->
+	<section class="hero-section spad">
+        {% for serial in serials %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hero-text">
+								<h2 style="font-size: 125px">{{ serial.name }}</h2>
+								<p>{{ serial.plot }}</p>
+							</div>
+							<div class="hero-info">
+								<h2>О сериале</h2>
+								<ul>
+                                    <li><span>Жанр </span><a href="#">{{ serial.genre }}</a></li>
+									<li><span>Год</span>{{ serial.year }}</li>
+									<li><span>Страна</span>{{ serial.country }}</li>
+									<li><span>Режиссер</span>{{ serial.producer }}</li>
+									<li><span>Продюссер </span>{{ serial.screenwriter }}</li>
+                                    <li><span>Сезонов </span><a href="{{ url_for('ss') }}" >{{ serial.seasons }}</a></li>
+                                    <li><span>В главных ролях </span>{% for actors in serials %}{% for act in actors.actors %}<a href="#">{{ act.name }}</a>, {% endfor %}{% endfor %}</li>
+								</ul>
+                                <p></p>
+                                <h2>Рейтинг&nbsp;{{ serial.rate }}</h2>
+
+								<!---выбор оценки----->
+                                <form>
+								  <div class="form-row align-items-center">
+									<div class="col-auto my-1">
+									  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+										<option selected>Выберите оценку...</option>
+										  <option value="1">1</option>
+										  <option value="2">2</option>
+										  <option value="3">3</option>
+										  <option value="4">4</option>
+										  <option value="5">5</option>
+										  <option value="6">6</option>
+										  <option value="7">7</option>
+										  <option value="8">8</option>
+										  <option value="9">9</option>
+										  <option value="10">10</option>
+									  </select>
+									</div>
+									<div class="col-auto my-1">
+									  <button type="submit" class="btn btn-secondary">Оценить</button>
+									</div>
+								  </div>
+								</form>
+
+								<!----------------->
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<figure class="hero-image">
+								<img src="{{ serial.main_img }}" style="height: 900px; width: auto" alt="5">
+							</figure>
+                            <figure class="hero-image">
+								<img src="{{ serial.dop_img2 }}" alt="5">
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endfor %}
+	</section>
+	<!-- Hero section end -->
+<!--------------------------------------------------------------------------------------------------------------------->
+{% endblock %}
+</body>
+
+</html>

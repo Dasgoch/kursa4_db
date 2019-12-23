@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Gallery</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:600,900" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gellery.css') }}"/>
+
+</head>
+{% extends 'base.html' %}
+<body>
+{% block serial_content %}
+  <p class="heading">CSS Gallery</p>
+  <div class="gallery-image">
+     {% for serial in serials %}
+    <div class="img-box">
+        <img src="{{ serial.main_img }}" > <!--ссылка НА картинку-->
+
+<a  href="{{ url_for('serial_detail', serial=serial.href) }}" title="{{ serial[2] }}" >
+      <div class="transparent-box">
+        <div class="caption">
+
+            <p>{{ serial.name }}</p>
+            <p class="opacity-low">Жанр:&nbsp;{{ serial.genre_name }}</p>
+            <p class="opacity-low">Год:&nbsp;{{ serial.year }}</p>
+            <p class="opacity-low">Сезонов:&nbsp;{{ serial.season}}</p>
+            <p class="opacity-low">Рейтинг:&nbsp;{{ serial.rate }}</p>
+        </div>
+      </div>
+</a>
+    </div>
+    {% endfor %}
+
+
+  </div>
+{% endblock %}
+</body>
+</html>

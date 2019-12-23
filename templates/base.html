@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Civic - CV Resume">
+	<meta name="keywords" content="resume, civic, onepage, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ url_for('func') }}">
+         <img src="http://img.lenagold.ru/p/plenk/plenka20.png" width="35" height="35" class="d-inline-block align-top" alt="">
+    Сериалы, да?🤣
+    </a> <!---logo & title-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('func') }}">Home <span class="sr-only">(current)</span></a>
+            </li> <!--- home --->
+
+          <li class="nav-item">
+           <!-- <a class="nav-link" href="#">Link</a>  -->
+               {% if current_user.is_anonymous %}
+                 <a class="nav-link" href="{{ url_for('login') }}"> Войти</a>
+                {% else %}
+                 <a class="nav-link" href="{{ url_for('logout') }}">Выйти</a>
+                 {% endif %}
+          </li> <!--- link -->
+
+            <li class="nav-item">
+               {% if current_user.is_anonymous %}
+                 <a class="nav-link" href="{{ url_for('registration') }}">Зарегистрироваться</a>
+                {% else %}
+                 {% endif %}
+          </li> <!--- reg -->
+        </ul>
+
+
+        {% if current_user.is_anonymous %}
+        {% else %}
+        <span class="navbar-text">
+            id:{{ current_user.id }}
+            {{ current_user.username }}&nbsp;&nbsp;&nbsp;
+        </span>
+        {% endif %}
+
+        <form class="form-inline my-2 my-lg-0" method="GET">
+
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.args.get('q', '') }}">
+
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> <!--- Search -->
+
+    </div>
+</nav>
+
+    <div class="col" style="margin-left: calc((100% - 980px) / 2); width: 980px;"><!--container-->
+        <h1>
+            {% block content_title %}
+            {% endblock %}
+            {% block log_reg %}
+            {% endblock %}
+        </h1>
+
+    </div>
+    <div class="row" style="margin-left: calc((100% - 980px) / 2); width: 980px;">
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% block serial_content %}
+    {% endblock %}
+
+    {% block serial_season %}
+    {% endblock %}
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/magnific-popup.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/circle-progress.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
